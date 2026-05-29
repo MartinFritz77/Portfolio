@@ -4,4 +4,4 @@
 
 ## Final Project of my Data Science Training: Predicting Car Sales
 ### Data Science Project: Predicting Used Car Sales in the US
-[Click here to show complete Jupyter Notebook](https://github.com/MartinFritz77/Portfolio/docs/assets/predict_car_sales.html)
+[Click here to show complete Jupyter Notebook](https://github.com/MartinFritz77/Portfolio/tree/main/docs/assets/predict_car_sales.html)
