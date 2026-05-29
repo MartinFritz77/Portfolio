@@ -3,3 +3,5 @@
 <!--![foto of Martin](/docs/assets/fritz_small2.jpg)-->
 
 ## Final Project of my Data Science Training: Predicting Car Sales
+### Data Science Project: Predicting Used Car Sales in the US
+[Click here to show complete Jupyter Notebook](https://github.com/MartinFritz77/docs/assets/predicting_car_sales.html)
