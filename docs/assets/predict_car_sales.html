@@ -2464,8 +2464,19 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 </table>
 <section id="preparation" class="level2">
 <h2 class="anchored" data-anchor-id="preparation">Preparation</h2>
-<p>As the target variable is binary and we want to predict a category, classification models will be deployed. The following will be tested: * LogisticRegression * Support Vector Machine/Classifier (SVC) * Random Forest * Artificial Neural Network (ANN)</p>
-<p>The following metrics are relevant: * minimize purchase of “lemons”: high recall (actual “lemons” are predcited correctly) * maximize sales of used cars: high precision (predicted “lemons” are actually “lemons”) –&gt; f1 score as the weighted harmonic mean of precision and recall</p>
+<p>As the target variable is binary and we want to predict a category, classification models will be deployed. The following will be tested:</p>
+<ul>
+<li>LogisticRegression</li>
+<li>Support Vector Machine/Classifier (SVC)</li>
+<li>Random Forest</li>
+<li>Artificial Neural Network (ANN)</li>
+</ul>
+<p>The following metrics are relevant:</p>
+<ul>
+<li>minimize purchase of “lemons”: high recall (actual “lemons” are predcited correctly)</li>
+<li>maximize sales of used cars: high precision (predicted “lemons” are actually “lemons”)</li>
+</ul>
+<p>–&gt; f1 score as the weighted harmonic mean of precision and recall</p>
 <section id="gather-data" class="level3">
 <h3 class="anchored" data-anchor-id="gather-data">Gather Data</h3>
 <div id="cell-7" class="cell" data-cell_content_type="code_user" data-changed="false" data-editable="true" data-hint="Importiere z.B. die Module `pandas`, `numpy`, `seaborn` und `matplotlib.pyplot`." data-hint_counter="0" data-original-content="# import modules  " data-selectable="true" data-execution_count="2">
@@ -3518,10 +3529,9 @@ NE           25     0.04
 </ol>
 </section>
 </section>
-<section id="train-test-split" class="level2">
-<h2 class="anchored" data-anchor-id="train-test-split">Train-Test-Split</h2>
-<p>::: {#cell-34 .cell cell_content_type=‘code_user’ changed=‘false’ editable=‘true’ hint=’<code>train_test_split()</code> haben wir in <em>Modul 2, Kapitel 4, Vektorisierung von Texten</em> kennengelernt.</p>
-<p>Teile deine Daten zuerst in Feature-Matrix und Zielvektor auf. Für jede Variable, die du überreichst, erhältst du 2 zurück: die Trainingsdaten und die Testdaten. Die Rückgabewerte sollten also aus <code>features_train</code>, <code>features_test</code>, <code>target_train</code>, <code>target_test</code> bestehen. ’ original-content=‘# perform train-test-split’ selectable=‘true’ execution_count=39}</p>
+<section id="train-test-split" class="level1">
+<h1><strong>Train-Test-Split</strong></h1>
+<div id="cell-34" class="cell" data-cell_content_type="code_user" data-changed="false" data-editable="true" data-hint="false" data-original-content="# perform train-test-split " data-selectable="true" data-execution_count="39">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">&#39;data_train.csv&#39;</span>)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># perform train-test-split</span></span>
@@ -3531,12 +3541,11 @@ NE           25     0.04
 <span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>target <span class="op">=</span> df[<span class="st">&#39;IsBadBuy&#39;</span>]</span>
 <span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>features_train, features_test, target_train, target_test <span class="op">=</span> train_test_split(features, target, </span>
 <span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>                                                                            random_state <span class="op">=</span> <span class="dv">42</span>, test_size <span class="op">=</span> <span class="fl">0.1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>:::</p>
-<div id="cell-35" class="cell" data-cell_content_type="code_user" data-changed="false" data-editable="true" data-hint="Vergiss beim Speichern nicht `index=False` als Parameter mitzugeben. Ansonsten wird `pandas` eine zusätzliche Spalte mit dem Index erzeugen, wodurch du mehr Spalten als beabsichtigt erhältst." data-original-content="# save features_test as &#39;features_test.csv&#39; " data-selectable="true" data-execution_count="40">
+</div>
+<div id="cell-35" class="cell" data-cell_content_type="code_user" data-changed="false" data-editable="true" data-hint="false" data-original-content="# save features_test as &#39;features_test.csv&#39; " data-selectable="true" data-execution_count="40">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save features_test as &#39;features_test.csv&#39;</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>features_test.to_csv(<span class="st">&#39;features_test.csv&#39;</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section>
 <section id="data-preparation" class="level2">
 <h2 class="anchored" data-anchor-id="data-preparation">Data Preparation</h2>
 <section id="datatype-transformation" class="level3">
@@ -3958,7 +3967,11 @@ recall:  0.5602836879432624
 f1:  0.36349693251533743</code></pre>
 </div>
 </div>
-<p><strong>Interpretation:</strong> * Minimize bad purchases (“lemons”): high recall score (actual “lemons” correctly predicted) * Maximize Sales: high precision score (predicted “lemons” are actual “lemons”)</p>
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li>Minimize bad purchases (“lemons”): high recall score (actual “lemons” correctly predicted)</li>
+<li>Maximize Sales: high precision score (predicted “lemons” are actual “lemons”)</li>
+</ul>
 <p>The simple baseline model predicts 56% of the actual “lemons” correctly. However, only 27% of the predicted “lemons” are actually “lemons” - the used car dealer would miss out on lucrative deals The weighted harmonic mean from recall and precision (f1) is 0.36</p>
 <p><strong>-&gt; using already this simple model can save the company more than half of the losses caused by bad buys!</strong></p>
 </section>
@@ -4376,6 +4389,7 @@ Name: Warr/Cost, dtype: float64</code></pre>
 </div>
 </section>
 </section>
+</section>
 <section id="all-functions-collected-in-one-place" class="level1">
 <h1><strong>All Functions collected in one place</strong></h1>
 <div id="cell-76" class="cell" data-execution_count="15">
@@ -4661,8 +4675,7 @@ Name: Warr/Cost, dtype: float64</code></pre>
 <h1><strong>Testing a range of different models:</strong></h1>
 <section id="simple-logistic-regression" class="level3">
 <h3 class="anchored" data-anchor-id="simple-logistic-regression">1. Simple logistic regression</h3>
-<p>::: {#cell-84 .cell cell_content_type=‘code_user’ changed=‘false’ editable=‘true’ hint=’Wähle zuerst deine Features aus. Zu Beginn kannst du auch alle Features nutzen. In späteren Schritten kann es aber sinnvoll sein, nur die relevanten Features auszuwählen. Falls du die Daten transformierst, empfiehlt es sich eine <code>Pipeline</code> zu verwenden.</p>
-<p>Die logistische Regression hat wenige Hyperparameter und eine geringe Rechenzeit. Für eine erste Einschätzung könntest du sie nutzen.’ original-content=‘# build unoptimized model’ selectable=‘true’ execution_count=99}</p>
+<div id="cell-84" class="cell" data-cell_content_type="code_user" data-changed="true" data-editable="true" data-hint="false" data-original-content="# build unoptimized model " data-selectable="true" data-execution_count="99">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># build unoptimized model</span></span>
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
@@ -4698,7 +4711,7 @@ precision:  0.2766798418972332
 recall:  0.5791962174940898
 f1:  0.37447458922430266</code></pre>
 </div>
-<p>:::</p>
+</div>
 <div id="cell-85" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co">#result of baseline model above (test):</span></span>
 <span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>precision:  <span class="fl">0.26916524701873934</span></span>
@@ -5161,7 +5174,7 @@ f1:  0.37190742218675177</code></pre>
 </div>
 </div>
 <div id="cell-105" class="cell" data-execution_count="119">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb102"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># train and evaluate finale model</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb102"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># train and evaluate final model</span></span>
 <span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a>best_params <span class="op">=</span> study.best_params</span>
 <span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb102-4"><a href="#cb102-4" aria-hidden="true" tabindex="-1"></a>model_rf_bo <span class="op">=</span> RandomForestClassifier(class_weight <span class="op">=</span> <span class="st">&#39;balanced&#39;</span>, random_state <span class="op">=</span> <span class="dv">42</span>, <span class="op">**</span>best_params)</span>
@@ -5284,73 +5297,66 @@ F1:  0.3803076923076923</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-112" class="cell" data-execution_count="31">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb108"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This clearly shows once again that LogReg correctly identifies more “lemon cars” (488 vs. only 309 for RF), while</span></span>
-<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a><span class="co"># it also classifies more cars as “lemon cars” that are actually in good condition (1277 vs. 470)</span></span>
-<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a><span class="co"># LogReg would therefore be suitable for a conservative company that wants to avoid costs</span></span>
-<span id="cb108-5"><a href="#cb108-5" aria-hidden="true" tabindex="-1"></a><span class="co"># RF would be suitable for a company that wants to maximize revenue and can afford more “lemon cars” (e.g., because</span></span>
-<span id="cb108-6"><a href="#cb108-6" aria-hidden="true" tabindex="-1"></a><span class="co"># it can still sell the individual parts or has large warehouses)</span></span>
-<span id="cb108-7"><a href="#cb108-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb108-8"><a href="#cb108-8" aria-hidden="true" tabindex="-1"></a><span class="co"># final decision for log reg model because it is simple, fast and sufficiently good for this project</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<p>This clearly shows once again that LogReg correctly identifies more “lemon cars” (488 vs. only 309 for RF), while it also classifies more cars as “lemon cars” that are actually in good condition (1277 vs. 470)</p>
+<p>LogReg would therefore be suitable for a conservative company that wants to avoid costs RF would be suitable for a company that wants to maximize revenue and can afford more “lemon cars” (e.g., because it can still sell the individual parts or has large warehouses)</p>
+<p>final decision for log reg model because it is simple, fast and sufficiently good for this project</p>
 </section>
 <section id="final-data-pipeline-function-to-predict-lemon-cars-in-aim-data-set" class="level2">
 <h2 class="anchored" data-anchor-id="final-data-pipeline-function-to-predict-lemon-cars-in-aim-data-set">Final Data pipeline / function to predict “lemon cars” in aim data set</h2>
 <div id="cell-114" class="cell" data-cell_content_type="code_user" data-changed="false" data-editable="true" data-hint="Wenn du willst, kannst du diese Codezelle gern im Forum unter *Abschlussprojekt: Gebrauchtwagenkäufe* diskutieren." data-original-content data-selectable="true" data-execution_count="125">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb109"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> final_pipe (csv, model):</span>
-<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&#39;&#39;&#39;Predicts Bad-Buy-Cars on Aim Dataset</span></span>
-<span id="cb109-3"><a href="#cb109-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Arguments: </span></span>
-<span id="cb109-4"><a href="#cb109-4" aria-hidden="true" tabindex="-1"></a><span class="co">    csv (str): path to data file in csv format</span></span>
-<span id="cb109-5"><a href="#cb109-5" aria-hidden="true" tabindex="-1"></a><span class="co">    model (model): the trained model</span></span>
-<span id="cb109-6"><a href="#cb109-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns: 1 = badbuy, 0 = not a badbuy</span></span>
-<span id="cb109-7"><a href="#cb109-7" aria-hidden="true" tabindex="-1"></a><span class="co">    &#39;&#39;&#39;</span></span>
-<span id="cb109-8"><a href="#cb109-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">#1. Read Data</span></span>
-<span id="cb109-9"><a href="#cb109-9" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb109-10"><a href="#cb109-10" aria-hidden="true" tabindex="-1"></a>    df_aim <span class="op">=</span> pd.read_csv(csv)</span>
-<span id="cb109-11"><a href="#cb109-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb109-12"><a href="#cb109-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">#2. Load parameter</span></span>
-<span id="cb109-13"><a href="#cb109-13" aria-hidden="true" tabindex="-1"></a>    params <span class="op">=</span> joblib.load(<span class="st">&#39;all_params.joblib&#39;</span>)</span>
-<span id="cb109-14"><a href="#cb109-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb109-15"><a href="#cb109-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">#3. Run functions with loaded parameters</span></span>
-<span id="cb109-16"><a href="#cb109-16" aria-hidden="true" tabindex="-1"></a>    df_aim, _ , _ , _  <span class="op">=</span> clean_data(df_aim, params[<span class="st">&#39;median&#39;</span>], params[<span class="st">&#39;mode&#39;</span>], params[<span class="st">&#39;mad&#39;</span>], outlier_col<span class="op">=</span><span class="st">&#39;VehBCost&#39;</span>)</span>
-<span id="cb109-17"><a href="#cb109-17" aria-hidden="true" tabindex="-1"></a>    df_aim, _     <span class="op">=</span> engineer_features(df_aim, params[<span class="st">&#39;top_categories&#39;</span>])</span>
-<span id="cb109-18"><a href="#cb109-18" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb109-19"><a href="#cb109-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">#4. Define features for PCA and run PCA</span></span>
-<span id="cb109-20"><a href="#cb109-20" aria-hidden="true" tabindex="-1"></a>    features_mmr <span class="op">=</span> [<span class="st">&#39;MMRAcquisitionAuctionAveragePrice&#39;</span>,<span class="st">&#39;MMRAcquisitionAuctionCleanPrice&#39;</span>, </span>
-<span id="cb109-21"><a href="#cb109-21" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;MMRAcquisitionRetailAveragePrice&#39;</span>,</span>
-<span id="cb109-22"><a href="#cb109-22" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;MMRAcquisitonRetailCleanPrice&#39;</span>, <span class="st">&#39;MMRCurrentAuctionAveragePrice&#39;</span>,</span>
-<span id="cb109-23"><a href="#cb109-23" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;MMRCurrentAuctionCleanPrice&#39;</span>, <span class="st">&#39;MMRCurrentRetailAveragePrice&#39;</span>,</span>
-<span id="cb109-24"><a href="#cb109-24" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;MMRCurrentRetailCleanPrice&#39;</span>]</span>
-<span id="cb109-25"><a href="#cb109-25" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb109-26"><a href="#cb109-26" aria-hidden="true" tabindex="-1"></a>    df_aim, _ , _     <span class="op">=</span> pca_data(df_aim, params[<span class="st">&#39;pca_pipeline&#39;</span>])</span>
-<span id="cb109-27"><a href="#cb109-27" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb109-28"><a href="#cb109-28" aria-hidden="true" tabindex="-1"></a>    <span class="co">#5. Define features that need additional outlier trimming </span></span>
-<span id="cb109-29"><a href="#cb109-29" aria-hidden="true" tabindex="-1"></a>    outlier_cols <span class="op">=</span> [<span class="st">&#39;Warr/Cost&#39;</span>] <span class="op">+</span> pca_cols</span>
-<span id="cb109-30"><a href="#cb109-30" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb109-31"><a href="#cb109-31" aria-hidden="true" tabindex="-1"></a>    df_aim, _ , _  <span class="op">=</span> trim_outliers_new(df_aim, outlier_cols, params[<span class="st">&#39;median_new&#39;</span>], params[<span class="st">&#39;mad_new&#39;</span>])</span>
-<span id="cb109-32"><a href="#cb109-32" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb109-33"><a href="#cb109-33" aria-hidden="true" tabindex="-1"></a>    <span class="co">#6. Define features for onehot encoding and standardization and transform those features</span></span>
-<span id="cb109-34"><a href="#cb109-34" aria-hidden="true" tabindex="-1"></a>    cat_cols <span class="op">=</span> [<span class="st">&#39;Auction&#39;</span>, <span class="st">&#39;Make&#39;</span>, <span class="st">&#39;Color&#39;</span>, <span class="st">&#39;WheelType&#39;</span>, <span class="st">&#39;Nationality&#39;</span>, <span class="st">&#39;Size&#39;</span>, <span class="st">&#39;TopThreeAmericanName&#39;</span>]</span>
-<span id="cb109-35"><a href="#cb109-35" aria-hidden="true" tabindex="-1"></a>    num_cols <span class="op">=</span> [<span class="st">&#39;VehYear&#39;</span>, <span class="st">&#39;VehicleAge&#39;</span>, <span class="st">&#39;VehOdo&#39;</span>, <span class="st">&#39;VehBCost&#39;</span>, <span class="st">&#39;WarrantyCost&#39;</span>, <span class="st">&#39;Warr/Cost&#39;</span>, <span class="st">&#39;pca_0&#39;</span>]</span>
-<span id="cb109-36"><a href="#cb109-36" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb109-37"><a href="#cb109-37" aria-hidden="true" tabindex="-1"></a>    df_aim, _     <span class="op">=</span> transform_features(df_aim, cat_cols, num_cols, params[<span class="st">&#39;ct&#39;</span>])</span>
-<span id="cb109-38"><a href="#cb109-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb109-39"><a href="#cb109-39" aria-hidden="true" tabindex="-1"></a>    <span class="co">#7. Predict</span></span>
-<span id="cb109-40"><a href="#cb109-40" aria-hidden="true" tabindex="-1"></a>    predictions <span class="op">=</span> model.predict(df_aim)</span>
-<span id="cb109-41"><a href="#cb109-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> predictions</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb108"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> final_pipe (csv, model):</span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&#39;&#39;&#39;Predicts Bad-Buy-Cars on Aim Dataset</span></span>
+<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Arguments: </span></span>
+<span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a><span class="co">    csv (str): path to data file in csv format</span></span>
+<span id="cb108-5"><a href="#cb108-5" aria-hidden="true" tabindex="-1"></a><span class="co">    model (model): the trained model</span></span>
+<span id="cb108-6"><a href="#cb108-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns: 1 = badbuy, 0 = not a badbuy</span></span>
+<span id="cb108-7"><a href="#cb108-7" aria-hidden="true" tabindex="-1"></a><span class="co">    &#39;&#39;&#39;</span></span>
+<span id="cb108-8"><a href="#cb108-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">#1. Read Data</span></span>
+<span id="cb108-9"><a href="#cb108-9" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb108-10"><a href="#cb108-10" aria-hidden="true" tabindex="-1"></a>    df_aim <span class="op">=</span> pd.read_csv(csv)</span>
+<span id="cb108-11"><a href="#cb108-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-12"><a href="#cb108-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">#2. Load parameter</span></span>
+<span id="cb108-13"><a href="#cb108-13" aria-hidden="true" tabindex="-1"></a>    params <span class="op">=</span> joblib.load(<span class="st">&#39;all_params.joblib&#39;</span>)</span>
+<span id="cb108-14"><a href="#cb108-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-15"><a href="#cb108-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">#3. Run functions with loaded parameters</span></span>
+<span id="cb108-16"><a href="#cb108-16" aria-hidden="true" tabindex="-1"></a>    df_aim, _ , _ , _  <span class="op">=</span> clean_data(df_aim, params[<span class="st">&#39;median&#39;</span>], params[<span class="st">&#39;mode&#39;</span>], params[<span class="st">&#39;mad&#39;</span>], outlier_col<span class="op">=</span><span class="st">&#39;VehBCost&#39;</span>)</span>
+<span id="cb108-17"><a href="#cb108-17" aria-hidden="true" tabindex="-1"></a>    df_aim, _     <span class="op">=</span> engineer_features(df_aim, params[<span class="st">&#39;top_categories&#39;</span>])</span>
+<span id="cb108-18"><a href="#cb108-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb108-19"><a href="#cb108-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">#4. Define features for PCA and run PCA</span></span>
+<span id="cb108-20"><a href="#cb108-20" aria-hidden="true" tabindex="-1"></a>    features_mmr <span class="op">=</span> [<span class="st">&#39;MMRAcquisitionAuctionAveragePrice&#39;</span>,<span class="st">&#39;MMRAcquisitionAuctionCleanPrice&#39;</span>, </span>
+<span id="cb108-21"><a href="#cb108-21" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;MMRAcquisitionRetailAveragePrice&#39;</span>,</span>
+<span id="cb108-22"><a href="#cb108-22" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;MMRAcquisitonRetailCleanPrice&#39;</span>, <span class="st">&#39;MMRCurrentAuctionAveragePrice&#39;</span>,</span>
+<span id="cb108-23"><a href="#cb108-23" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;MMRCurrentAuctionCleanPrice&#39;</span>, <span class="st">&#39;MMRCurrentRetailAveragePrice&#39;</span>,</span>
+<span id="cb108-24"><a href="#cb108-24" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;MMRCurrentRetailCleanPrice&#39;</span>]</span>
+<span id="cb108-25"><a href="#cb108-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb108-26"><a href="#cb108-26" aria-hidden="true" tabindex="-1"></a>    df_aim, _ , _     <span class="op">=</span> pca_data(df_aim, params[<span class="st">&#39;pca_pipeline&#39;</span>])</span>
+<span id="cb108-27"><a href="#cb108-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb108-28"><a href="#cb108-28" aria-hidden="true" tabindex="-1"></a>    <span class="co">#5. Define features that need additional outlier trimming </span></span>
+<span id="cb108-29"><a href="#cb108-29" aria-hidden="true" tabindex="-1"></a>    outlier_cols <span class="op">=</span> [<span class="st">&#39;Warr/Cost&#39;</span>] <span class="op">+</span> pca_cols</span>
+<span id="cb108-30"><a href="#cb108-30" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb108-31"><a href="#cb108-31" aria-hidden="true" tabindex="-1"></a>    df_aim, _ , _  <span class="op">=</span> trim_outliers_new(df_aim, outlier_cols, params[<span class="st">&#39;median_new&#39;</span>], params[<span class="st">&#39;mad_new&#39;</span>])</span>
+<span id="cb108-32"><a href="#cb108-32" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb108-33"><a href="#cb108-33" aria-hidden="true" tabindex="-1"></a>    <span class="co">#6. Define features for onehot encoding and standardization and transform those features</span></span>
+<span id="cb108-34"><a href="#cb108-34" aria-hidden="true" tabindex="-1"></a>    cat_cols <span class="op">=</span> [<span class="st">&#39;Auction&#39;</span>, <span class="st">&#39;Make&#39;</span>, <span class="st">&#39;Color&#39;</span>, <span class="st">&#39;WheelType&#39;</span>, <span class="st">&#39;Nationality&#39;</span>, <span class="st">&#39;Size&#39;</span>, <span class="st">&#39;TopThreeAmericanName&#39;</span>]</span>
+<span id="cb108-35"><a href="#cb108-35" aria-hidden="true" tabindex="-1"></a>    num_cols <span class="op">=</span> [<span class="st">&#39;VehYear&#39;</span>, <span class="st">&#39;VehicleAge&#39;</span>, <span class="st">&#39;VehOdo&#39;</span>, <span class="st">&#39;VehBCost&#39;</span>, <span class="st">&#39;WarrantyCost&#39;</span>, <span class="st">&#39;Warr/Cost&#39;</span>, <span class="st">&#39;pca_0&#39;</span>]</span>
+<span id="cb108-36"><a href="#cb108-36" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb108-37"><a href="#cb108-37" aria-hidden="true" tabindex="-1"></a>    df_aim, _     <span class="op">=</span> transform_features(df_aim, cat_cols, num_cols, params[<span class="st">&#39;ct&#39;</span>])</span>
+<span id="cb108-38"><a href="#cb108-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-39"><a href="#cb108-39" aria-hidden="true" tabindex="-1"></a>    <span class="co">#7. Predict</span></span>
+<span id="cb108-40"><a href="#cb108-40" aria-hidden="true" tabindex="-1"></a>    predictions <span class="op">=</span> model.predict(df_aim)</span>
+<span id="cb108-41"><a href="#cb108-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> predictions</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-115" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb110"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> joblib</span>
-<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> joblib.load(<span class="st">&#39;best_model_log.pkl&#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb109"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> joblib</span>
+<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> joblib.load(<span class="st">&#39;best_model_log.pkl&#39;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-116" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[]" data-execution_count="135">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb111"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="co">#predict</span></span>
-<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> final_pipe(<span class="st">&#39;features_aim.csv&#39;</span>, model)</span>
-<span id="cb111-3"><a href="#cb111-3" aria-hidden="true" tabindex="-1"></a>pd.Series(y_pred).to_csv(<span class="st">&#39;predictions_aim.csv&#39;</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb110"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co">#predict</span></span>
+<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> final_pipe(<span class="st">&#39;features_aim.csv&#39;</span>, model)</span>
+<span id="cb110-3"><a href="#cb110-3" aria-hidden="true" tabindex="-1"></a>pd.Series(y_pred).to_csv(<span class="st">&#39;predictions_aim.csv&#39;</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-117" class="cell" data-execution_count="136">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb112"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y_pred.mean())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb111"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y_pred.mean())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0.26741634668129455</code></pre>
 </div>
@@ -5361,16 +5367,16 @@ F1:  0.3803076923076923</code></pre>
 <h2 class="anchored" data-anchor-id="model-interpretation---feature-importance">Model Interpretation - feature importance</h2>
 <p>What features are important for predicting “lemon cars” according to the final model? What makes a used car hardly resalable?</p>
 <div id="cell-121" class="cell" data-execution_count="138">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb114"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a>coefs <span class="op">=</span> pd.Series(</span>
-<span id="cb114-4"><a href="#cb114-4" aria-hidden="true" tabindex="-1"></a>    model.named_steps[<span class="st">&#39;classifier&#39;</span>].coef_[<span class="dv">0</span>],</span>
-<span id="cb114-5"><a href="#cb114-5" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>features_train.columns.tolist()</span>
-<span id="cb114-6"><a href="#cb114-6" aria-hidden="true" tabindex="-1"></a>).sort_values(key<span class="op">=</span><span class="bu">abs</span>, ascending<span class="op">=</span><span class="va">True</span>) </span>
-<span id="cb114-7"><a href="#cb114-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb114-8"><a href="#cb114-8" aria-hidden="true" tabindex="-1"></a>coefs.plot(kind<span class="op">=</span><span class="st">&#39;barh&#39;</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
-<span id="cb114-9"><a href="#cb114-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&#39;Feature Importance via coefficients&#39;</span>)</span>
-<span id="cb114-10"><a href="#cb114-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb113"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>coefs <span class="op">=</span> pd.Series(</span>
+<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a>    model.named_steps[<span class="st">&#39;classifier&#39;</span>].coef_[<span class="dv">0</span>],</span>
+<span id="cb113-5"><a href="#cb113-5" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>features_train.columns.tolist()</span>
+<span id="cb113-6"><a href="#cb113-6" aria-hidden="true" tabindex="-1"></a>).sort_values(key<span class="op">=</span><span class="bu">abs</span>, ascending<span class="op">=</span><span class="va">True</span>) </span>
+<span id="cb113-7"><a href="#cb113-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-8"><a href="#cb113-8" aria-hidden="true" tabindex="-1"></a>coefs.plot(kind<span class="op">=</span><span class="st">&#39;barh&#39;</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb113-9"><a href="#cb113-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&#39;Feature Importance via coefficients&#39;</span>)</span>
+<span id="cb113-10"><a href="#cb113-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -5379,8 +5385,9 @@ F1:  0.3803076923076923</code></pre>
 </div>
 </div>
 </div>
-<p><strong>Explanation:</strong> * An unknown wheel type has by far the greatest influence on whether a purchase turns out to be a lemon. Since the other categories of this feature are “wheel covers” and “alloy wheels”, the unknown type could be either standard wheels without wheel covers (which might not inspire much confidence) or perhaps even cars without wheels — which would explain the enormous importance of this feature. In any case, it can be recommended that the company installs hubcaps before reselling the cars.</p>
+<p><strong>Explanation:</strong></p>
 <ul>
+<li><p>An unknown wheel type has by far the greatest influence on whether a purchase turns out to be a lemon. Since the other categories of this feature are “wheel covers” and “alloy wheels”, the unknown type could be either standard wheels without wheel covers (which might not inspire much confidence) or perhaps even cars without wheels — which would explain the enormous importance of this feature. In any case, it can be recommended that the company installs hubcaps before reselling the cars.</p></li>
 <li><p>As expected, the age of the car is also important — the older it is, the lower the chance of resale</p></li>
 <li><p>With higher mileage (VehOdo) the cars become less resalable</p></li>
 <li><p>Cars from GM, as well as large cars, vans, and cars purchased at a higher price (VehBCOst) tend to sell better</p></li>
@@ -5390,15 +5397,15 @@ F1:  0.3803076923076923</code></pre>
 <li><p>Features without a bar were set to zero by the Lasso regression and do not play a role in the prediction</p></li>
 </ul>
 <div id="cell-123" class="cell" data-execution_count="139">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb115"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="co">#alternatively odd ratios can be calculated:</span></span>
-<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb115-4"><a href="#cb115-4" aria-hidden="true" tabindex="-1"></a>odds_ratios <span class="op">=</span> pd.Series(</span>
-<span id="cb115-5"><a href="#cb115-5" aria-hidden="true" tabindex="-1"></a>    np.exp(model.named_steps[<span class="st">&#39;classifier&#39;</span>].coef_[<span class="dv">0</span>]),</span>
-<span id="cb115-6"><a href="#cb115-6" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>features_train.columns.tolist()</span>
-<span id="cb115-7"><a href="#cb115-7" aria-hidden="true" tabindex="-1"></a>).sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb115-8"><a href="#cb115-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb115-9"><a href="#cb115-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(odds_ratios)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb114"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="co">#alternatively odd ratios can be calculated:</span></span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-4"><a href="#cb114-4" aria-hidden="true" tabindex="-1"></a>odds_ratios <span class="op">=</span> pd.Series(</span>
+<span id="cb114-5"><a href="#cb114-5" aria-hidden="true" tabindex="-1"></a>    np.exp(model.named_steps[<span class="st">&#39;classifier&#39;</span>].coef_[<span class="dv">0</span>]),</span>
+<span id="cb114-6"><a href="#cb114-6" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>features_train.columns.tolist()</span>
+<span id="cb114-7"><a href="#cb114-7" aria-hidden="true" tabindex="-1"></a>).sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb114-8"><a href="#cb114-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-9"><a href="#cb114-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(odds_ratios)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>WheelType_unknown                24.729708
 VehicleAge                        1.620290
@@ -5444,23 +5451,23 @@ dtype: float64</code></pre>
 </div>
 <p>A car with unknown wheeltype has a 25 times higher chance to become lemon car than average, while a car from one of the top three American brands has a 20 percent reduced chance as compared to the average.</p>
 <div id="cell-125" class="cell" data-execution_count="140">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb117"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Permutation importance (Model agnostic)</span></span>
-<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-3"><a href="#cb117-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.inspection <span class="im">import</span> permutation_importance</span>
-<span id="cb117-4"><a href="#cb117-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-5"><a href="#cb117-5" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> permutation_importance(model, features_test, target_test,</span>
-<span id="cb117-6"><a href="#cb117-6" aria-hidden="true" tabindex="-1"></a>                                n_repeats<span class="op">=</span><span class="dv">10</span>,</span>
-<span id="cb117-7"><a href="#cb117-7" aria-hidden="true" tabindex="-1"></a>                                scoring<span class="op">=</span><span class="st">&#39;f1&#39;</span>,</span>
-<span id="cb117-8"><a href="#cb117-8" aria-hidden="true" tabindex="-1"></a>                                random_state<span class="op">=</span><span class="dv">42</span>)</span>
-<span id="cb117-9"><a href="#cb117-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-10"><a href="#cb117-10" aria-hidden="true" tabindex="-1"></a>importance <span class="op">=</span> pd.Series(</span>
-<span id="cb117-11"><a href="#cb117-11" aria-hidden="true" tabindex="-1"></a>    result.importances_mean,</span>
-<span id="cb117-12"><a href="#cb117-12" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>features_test.columns.tolist()</span>
-<span id="cb117-13"><a href="#cb117-13" aria-hidden="true" tabindex="-1"></a>).sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb117-14"><a href="#cb117-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-15"><a href="#cb117-15" aria-hidden="true" tabindex="-1"></a>importance.plot(kind<span class="op">=</span><span class="st">&#39;barh&#39;</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
-<span id="cb117-16"><a href="#cb117-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&#39;Permutation Importance&#39;</span>)</span>
-<span id="cb117-17"><a href="#cb117-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb116"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Permutation importance (Model agnostic)</span></span>
+<span id="cb116-2"><a href="#cb116-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-3"><a href="#cb116-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.inspection <span class="im">import</span> permutation_importance</span>
+<span id="cb116-4"><a href="#cb116-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-5"><a href="#cb116-5" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> permutation_importance(model, features_test, target_test,</span>
+<span id="cb116-6"><a href="#cb116-6" aria-hidden="true" tabindex="-1"></a>                                n_repeats<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb116-7"><a href="#cb116-7" aria-hidden="true" tabindex="-1"></a>                                scoring<span class="op">=</span><span class="st">&#39;f1&#39;</span>,</span>
+<span id="cb116-8"><a href="#cb116-8" aria-hidden="true" tabindex="-1"></a>                                random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb116-9"><a href="#cb116-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-10"><a href="#cb116-10" aria-hidden="true" tabindex="-1"></a>importance <span class="op">=</span> pd.Series(</span>
+<span id="cb116-11"><a href="#cb116-11" aria-hidden="true" tabindex="-1"></a>    result.importances_mean,</span>
+<span id="cb116-12"><a href="#cb116-12" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>features_test.columns.tolist()</span>
+<span id="cb116-13"><a href="#cb116-13" aria-hidden="true" tabindex="-1"></a>).sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb116-14"><a href="#cb116-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-15"><a href="#cb116-15" aria-hidden="true" tabindex="-1"></a>importance.plot(kind<span class="op">=</span><span class="st">&#39;barh&#39;</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb116-16"><a href="#cb116-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&#39;Permutation Importance&#39;</span>)</span>
+<span id="cb116-17"><a href="#cb116-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -5479,39 +5486,39 @@ dtype: float64</code></pre>
 <li><p>according to this evaluation, features such as Warranty Costs and Chevrolet seem to hinder the prediction rather than help it</p></li>
 </ul>
 <div id="cell-127" class="cell" data-execution_count="149">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb118"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ICE Plot (Individual Conditional Expectation) for vehicle age (and partial dependence plot for comparing with average)</span></span>
-<span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb118-3"><a href="#cb118-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.inspection <span class="im">import</span> PartialDependenceDisplay</span>
-<span id="cb118-4"><a href="#cb118-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb118-5"><a href="#cb118-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb118-6"><a href="#cb118-6" aria-hidden="true" tabindex="-1"></a>feature <span class="op">=</span> <span class="st">&#39;VehicleAge&#39;</span></span>
-<span id="cb118-7"><a href="#cb118-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb118-8"><a href="#cb118-8" aria-hidden="true" tabindex="-1"></a><span class="co">#fig, ax = plt.subplots(figsize=(8, 5))</span></span>
-<span id="cb118-9"><a href="#cb118-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb118-10"><a href="#cb118-10" aria-hidden="true" tabindex="-1"></a>PartialDependenceDisplay.from_estimator(</span>
-<span id="cb118-11"><a href="#cb118-11" aria-hidden="true" tabindex="-1"></a>    model,</span>
-<span id="cb118-12"><a href="#cb118-12" aria-hidden="true" tabindex="-1"></a>    features_train,</span>
-<span id="cb118-13"><a href="#cb118-13" aria-hidden="true" tabindex="-1"></a>    [<span class="st">&#39;VehicleAge&#39;</span>],</span>
-<span id="cb118-14"><a href="#cb118-14" aria-hidden="true" tabindex="-1"></a>    kind<span class="op">=</span><span class="st">&#39;both&#39;</span>,</span>
-<span id="cb118-15"><a href="#cb118-15" aria-hidden="true" tabindex="-1"></a>    subsample<span class="op">=</span><span class="fl">0.1</span>,</span>
-<span id="cb118-16"><a href="#cb118-16" aria-hidden="true" tabindex="-1"></a>    random_state<span class="op">=</span><span class="dv">42</span></span>
-<span id="cb118-17"><a href="#cb118-17" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb118-18"><a href="#cb118-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb118-19"><a href="#cb118-19" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.gca()</span>
-<span id="cb118-20"><a href="#cb118-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb118-21"><a href="#cb118-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> line <span class="kw">in</span> ax.lines:</span>
-<span id="cb118-22"><a href="#cb118-22" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> line.get_label()</span>
-<span id="cb118-23"><a href="#cb118-23" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb118-24"><a href="#cb118-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="op">!=</span> <span class="st">&#39;average&#39;</span>:  <span class="co"># ICE Linien</span></span>
-<span id="cb118-25"><a href="#cb118-25" aria-hidden="true" tabindex="-1"></a>        line.set_alpha(<span class="fl">0.15</span>)</span>
-<span id="cb118-26"><a href="#cb118-26" aria-hidden="true" tabindex="-1"></a>        line.set_linewidth(<span class="fl">0.8</span>)</span>
-<span id="cb118-27"><a href="#cb118-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:  <span class="co"># PDP</span></span>
-<span id="cb118-28"><a href="#cb118-28" aria-hidden="true" tabindex="-1"></a>        line.set_linewidth(<span class="dv">4</span>)</span>
-<span id="cb118-29"><a href="#cb118-29" aria-hidden="true" tabindex="-1"></a>        line.set_color(<span class="st">&#39;red&#39;</span>)</span>
-<span id="cb118-30"><a href="#cb118-30" aria-hidden="true" tabindex="-1"></a>        line.set_zorder(<span class="dv">10</span>)</span>
-<span id="cb118-31"><a href="#cb118-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb118-32"><a href="#cb118-32" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&#39;Partial Dependence + ICE Plot - VehicleAge&#39;</span>)</span>
-<span id="cb118-33"><a href="#cb118-33" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb117"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ICE Plot (Individual Conditional Expectation) for vehicle age (and partial dependence plot for comparing with average)</span></span>
+<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-3"><a href="#cb117-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.inspection <span class="im">import</span> PartialDependenceDisplay</span>
+<span id="cb117-4"><a href="#cb117-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb117-5"><a href="#cb117-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-6"><a href="#cb117-6" aria-hidden="true" tabindex="-1"></a>feature <span class="op">=</span> <span class="st">&#39;VehicleAge&#39;</span></span>
+<span id="cb117-7"><a href="#cb117-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-8"><a href="#cb117-8" aria-hidden="true" tabindex="-1"></a><span class="co">#fig, ax = plt.subplots(figsize=(8, 5))</span></span>
+<span id="cb117-9"><a href="#cb117-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-10"><a href="#cb117-10" aria-hidden="true" tabindex="-1"></a>PartialDependenceDisplay.from_estimator(</span>
+<span id="cb117-11"><a href="#cb117-11" aria-hidden="true" tabindex="-1"></a>    model,</span>
+<span id="cb117-12"><a href="#cb117-12" aria-hidden="true" tabindex="-1"></a>    features_train,</span>
+<span id="cb117-13"><a href="#cb117-13" aria-hidden="true" tabindex="-1"></a>    [<span class="st">&#39;VehicleAge&#39;</span>],</span>
+<span id="cb117-14"><a href="#cb117-14" aria-hidden="true" tabindex="-1"></a>    kind<span class="op">=</span><span class="st">&#39;both&#39;</span>,</span>
+<span id="cb117-15"><a href="#cb117-15" aria-hidden="true" tabindex="-1"></a>    subsample<span class="op">=</span><span class="fl">0.1</span>,</span>
+<span id="cb117-16"><a href="#cb117-16" aria-hidden="true" tabindex="-1"></a>    random_state<span class="op">=</span><span class="dv">42</span></span>
+<span id="cb117-17"><a href="#cb117-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb117-18"><a href="#cb117-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-19"><a href="#cb117-19" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.gca()</span>
+<span id="cb117-20"><a href="#cb117-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-21"><a href="#cb117-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> line <span class="kw">in</span> ax.lines:</span>
+<span id="cb117-22"><a href="#cb117-22" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> line.get_label()</span>
+<span id="cb117-23"><a href="#cb117-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb117-24"><a href="#cb117-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="op">!=</span> <span class="st">&#39;average&#39;</span>:  <span class="co"># ICE Linien</span></span>
+<span id="cb117-25"><a href="#cb117-25" aria-hidden="true" tabindex="-1"></a>        line.set_alpha(<span class="fl">0.15</span>)</span>
+<span id="cb117-26"><a href="#cb117-26" aria-hidden="true" tabindex="-1"></a>        line.set_linewidth(<span class="fl">0.8</span>)</span>
+<span id="cb117-27"><a href="#cb117-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:  <span class="co"># PDP</span></span>
+<span id="cb117-28"><a href="#cb117-28" aria-hidden="true" tabindex="-1"></a>        line.set_linewidth(<span class="dv">4</span>)</span>
+<span id="cb117-29"><a href="#cb117-29" aria-hidden="true" tabindex="-1"></a>        line.set_color(<span class="st">&#39;red&#39;</span>)</span>
+<span id="cb117-30"><a href="#cb117-30" aria-hidden="true" tabindex="-1"></a>        line.set_zorder(<span class="dv">10</span>)</span>
+<span id="cb117-31"><a href="#cb117-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-32"><a href="#cb117-32" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&#39;Partial Dependence + ICE Plot - VehicleAge&#39;</span>)</span>
+<span id="cb117-33"><a href="#cb117-33" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -5522,16 +5529,16 @@ dtype: float64</code></pre>
 </div>
 <p>There are two bundles of used cars: the bigger lower bundle where the chance of becoming a lemon car increases with vehicle age and a smaller (in terms of n) bundle in the upper part of the plot where the chance of being a lemon car is already quite high and rises only slightly with vehicle age. These are probably the cars with unknown wheeltype which are hardly resalable (largely) regardless of their age.</p>
 <div id="cell-129" class="cell" data-execution_count="151">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb119"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>PartialDependenceDisplay.from_estimator(</span>
-<span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a>    model,</span>
-<span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a>    features_train,</span>
-<span id="cb119-4"><a href="#cb119-4" aria-hidden="true" tabindex="-1"></a>    [(<span class="st">&#39;VehicleAge&#39;</span>, <span class="st">&#39;VehBCost&#39;</span>)],</span>
-<span id="cb119-5"><a href="#cb119-5" aria-hidden="true" tabindex="-1"></a>    kind<span class="op">=</span><span class="st">&#39;average&#39;</span>,</span>
-<span id="cb119-6"><a href="#cb119-6" aria-hidden="true" tabindex="-1"></a>    grid_resolution<span class="op">=</span><span class="dv">50</span></span>
-<span id="cb119-7"><a href="#cb119-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb119-8"><a href="#cb119-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb119-9"><a href="#cb119-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&#39;PDP Interaction - VehicleAge &amp; VehBCost&#39;</span>)</span>
-<span id="cb119-10"><a href="#cb119-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb118"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>PartialDependenceDisplay.from_estimator(</span>
+<span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a>    model,</span>
+<span id="cb118-3"><a href="#cb118-3" aria-hidden="true" tabindex="-1"></a>    features_train,</span>
+<span id="cb118-4"><a href="#cb118-4" aria-hidden="true" tabindex="-1"></a>    [(<span class="st">&#39;VehicleAge&#39;</span>, <span class="st">&#39;VehBCost&#39;</span>)],</span>
+<span id="cb118-5"><a href="#cb118-5" aria-hidden="true" tabindex="-1"></a>    kind<span class="op">=</span><span class="st">&#39;average&#39;</span>,</span>
+<span id="cb118-6"><a href="#cb118-6" aria-hidden="true" tabindex="-1"></a>    grid_resolution<span class="op">=</span><span class="dv">50</span></span>
+<span id="cb118-7"><a href="#cb118-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb118-8"><a href="#cb118-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-9"><a href="#cb118-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&#39;PDP Interaction - VehicleAge &amp; VehBCost&#39;</span>)</span>
+<span id="cb118-10"><a href="#cb118-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -5542,8 +5549,8 @@ dtype: float64</code></pre>
 </div>
 <p>The purchase price for the vehicle at the time of purchase and the vehicle age show an additive interaction on the chance to be a lemon car: the cheaper the car and the older the car is the more likely it is a lemon car.</p>
 <div id="cell-131" class="cell" data-execution_count="154">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb120"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>{sys.executable} <span class="op">-</span>m pip install shap</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb119"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>{sys.executable} <span class="op">-</span>m pip install shap</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Defaulting to user installation because normal site-packages is not writeable
 Collecting shap
@@ -5587,21 +5594,21 @@ Successfully installed shap-0.52.0 slicer-0.0.8</code></pre>
 </div>
 </div>
 <div id="cell-132" class="cell" data-execution_count="157">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb122"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sys.executable)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb121"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sys.executable)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>C:\ProgramData\anaconda3\python.exe</code></pre>
 </div>
 </div>
 <div id="cell-133" class="cell" data-execution_count="22">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb124"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SHAP (SHapley Additive exPlanations) Contribution of each feature to the prediction – based on game theory (Shapley values)</span></span>
-<span id="cb124-2"><a href="#cb124-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> shap</span>
-<span id="cb124-3"><a href="#cb124-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-4"><a href="#cb124-4" aria-hidden="true" tabindex="-1"></a>explainer <span class="op">=</span> shap.LinearExplainer(model.named_steps[<span class="st">&#39;classifier&#39;</span>],</span>
-<span id="cb124-5"><a href="#cb124-5" aria-hidden="true" tabindex="-1"></a>                                  features_test, max_samples<span class="op">=</span><span class="dv">1000</span>)</span>
-<span id="cb124-6"><a href="#cb124-6" aria-hidden="true" tabindex="-1"></a>shap_values <span class="op">=</span> explainer.shap_values(features_test)</span>
-<span id="cb124-7"><a href="#cb124-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-8"><a href="#cb124-8" aria-hidden="true" tabindex="-1"></a>shap.summary_plot(shap_values, features_test,</span>
-<span id="cb124-9"><a href="#cb124-9" aria-hidden="true" tabindex="-1"></a>                  feature_names<span class="op">=</span>features_test.columns.tolist())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb123"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SHAP (SHapley Additive exPlanations) Contribution of each feature to the prediction – based on game theory (Shapley values)</span></span>
+<span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> shap</span>
+<span id="cb123-3"><a href="#cb123-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-4"><a href="#cb123-4" aria-hidden="true" tabindex="-1"></a>explainer <span class="op">=</span> shap.LinearExplainer(model.named_steps[<span class="st">&#39;classifier&#39;</span>],</span>
+<span id="cb123-5"><a href="#cb123-5" aria-hidden="true" tabindex="-1"></a>                                  features_test, max_samples<span class="op">=</span><span class="dv">1000</span>)</span>
+<span id="cb123-6"><a href="#cb123-6" aria-hidden="true" tabindex="-1"></a>shap_values <span class="op">=</span> explainer.shap_values(features_test)</span>
+<span id="cb123-7"><a href="#cb123-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-8"><a href="#cb123-8" aria-hidden="true" tabindex="-1"></a>shap.summary_plot(shap_values, features_test,</span>
+<span id="cb123-9"><a href="#cb123-9" aria-hidden="true" tabindex="-1"></a>                  feature_names<span class="op">=</span>features_test.columns.tolist())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Background dataset has 6562 samples but max_samples=100. Subsampling to 100 samples for SHAP value computation. To use all samples, set max_samples=6562 when initializing the masker.</code></pre>
 </div>
