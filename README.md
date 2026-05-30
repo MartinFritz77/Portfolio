@@ -14,6 +14,7 @@ This project includes EDA and deployment of several ML models, including logisti
 </div>
 [Click here to show complete Jupyter Notebook]({{ '/docs/assets/predict_car_sales.html' | relative_url }})
 
+
 ### Explorative Data Analysis in Python: Exploring churn factors of a telecommunications provider
 This project demonstrates with artificial data how python can be used to investigate customer data, visualize results for target audiences and provide business intelligence for profund marketing decisions.
 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
