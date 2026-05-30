@@ -18,7 +18,7 @@ This project includes EDA and deployment of several ML models, including logisti
 This project demonstrates with artificial data how python can be used to investigate customer data, visualize results for target audiences and provide business intelligence for profund marketing decisions.
 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
   <figure>
-    <img src="{{ '/docs/assets/smartphone1.png' | relative_url }}" alt="smartphone" style="width: 100%; height: 250px; object-fit: cover;">
+    <img src="{{ '/docs/assets/smartphone1.png' | relative_url }}" alt="smartphone" style="width: 100%; height: 85%; object-fit: cover;">
     <figcaption><sub>from pixabay</sub></figcaption>
   </figure>
   <img src="{{ '/docs/assets/seaborn_pair_grid.png' | relative_url }}" alt="a_graph" style="width: 100%;">
