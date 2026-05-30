@@ -13,7 +13,7 @@ This project includes EDA and deployment of several ML models, including logisti
 
 ### Explorative Data Analysis in Python: Exploring churn factors of a telecommunications provider
 This project demonstrates with artificial data how python can be used to investigate customer data, visualize results for target audiences and provide business intelligence for profund marketing decisions.
-<div style="display: grid; grid-template-columns: 1fr; gap: 10px;">
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
   <img src="{{ '/docs/assets/smartphone1.png' | relative_url }}" alt="smartphone" style="grid-column: span 2; width: 100%;">
   <img src="{{ '/docs/assets/seaborn_pair_grid.png' | relative_url }}" alt="a_graph" style="width: 100%;">
 </div>
