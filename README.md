@@ -26,4 +26,4 @@ This project demonstrates with artificial data how python can be used to investi
 </div>
 [Click here]({{ '/docs/assets/EDA_Visualisierungen_Kundenabwanderung.html' | relative_url }}) to show complete Jupyter Notebook (in German)
 
-Here, I will add in due course my scientific projects that involve cluster and correspondence analyses with R. Results are published in peer-reviewed journals and book. If you are interested, please have a look at my [list of publications](https://drive.google.com/file/d/1jgl_wEDjXhScN964V5P-iRhy7plVY5B6/view?usp=drive_link) and my [Google Scholar](https://scholar.google.com/citations?hl=de&user=hCaq_LEAAAAJ) profile.
+Here, I will add in due course my scientific projects that involve cluster and correspondence analyses with R. Results are published in peer-reviewed journals and book. If you are interested, please have a look at my <a href="https://drive.google.com/file/d/1jgl_wEDjXhScN964V5P-iRhy7plVY5B6/view?usp=drive_link" target="_blank">list of publications</a> and my [Google Scholar](https://drive.google.com/file/d/1tu9J3zJmLvvGTz3ulWCpylqszNa8liEJ/view?usp=sharing) profile.
