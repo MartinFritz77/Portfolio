@@ -17,7 +17,7 @@ This project includes EDA and deployment of several ML models, including logisti
 
 ### Explorative Data Analysis in Python: Exploring churn factors of a telecommunications provider
 This project demonstrates with artificial data how python can be used to investigate customer data, visualize results for target audiences and provide business intelligence for profund marketing decisions.
-<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; height: 250px;">
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px height: 250px;">
   <figure>
     <img src="{{ '/docs/assets/smartphone1.png' | relative_url }}" alt="smartphone" style="width: 100%; height: 65%; object-fit: contain;">
     <figcaption><sub>from pixabay</sub></figcaption>
@@ -25,5 +25,7 @@ This project demonstrates with artificial data how python can be used to investi
   <img src="{{ '/docs/assets/seaborn_pair_grid.png' | relative_url }}" alt="a_graph" style="width: 100%;">
 </div>
 
-<p>[Click here]({{ '/docs/assets/EDA_Visualisierungen_Kundenabwanderung.html' | relative_url }}) to show complete Jupyter Notebook (in German)</p>
-<p>Here, I will add in due course my scientific projects that involve cluster and correspondence analyses with R. Results are published in peer-reviewed journals and book. If you are interested, please have a look at my [list of publications] ({{ 'https://drive.google.com/file/d/1jgl_wEDjXhScN964V5P-iRhy7plVY5B6/view?usp=drive_link'}}) and my [Google Scholar] ({{ 'https://scholar.google.com/citations?hl=de&user=hCaq_LEAAAAJ'}}) profile</p>
+[Click here]({{ '/docs/assets/EDA_Visualisierungen_Kundenabwanderung.html' | relative_url }}) to show complete Jupyter Notebook (in German)
+
+
+Here, I will add in due course my scientific projects that involve cluster and correspondence analyses with R. Results are published in peer-reviewed journals and book. If you are interested, please have a look at my [list of publications] ({{ 'https://drive.google.com/file/d/1jgl_wEDjXhScN964V5P-iRhy7plVY5B6/view?usp=drive_link'}}) and my [Google Scholar] ({{ 'https://scholar.google.com/citations?hl=de&user=hCaq_LEAAAAJ'}}) profile
