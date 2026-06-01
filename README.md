@@ -24,7 +24,7 @@ This project demonstrates with artificial data how python can be used to investi
   </figure>
   <img src="{{ '/docs/assets/seaborn_pair_grid.png' | relative_url }}" alt="a_graph" style="width: 100%;">
 </div>
-[Click here]({{ '/docs/assets/EDA_Visualisierungen_Kundenabwanderung.html' | relative_url }}) to show complete Jupyter Notebook (in German)
+[Click here to show complete Jupyter Notebook]({{ '/docs/assets/EDA_Visualisierungen_Kundenabwanderung.html' | relative_url }}) (in German)
 
 ### Scientific Data Analysis Projects with R
-Here, I will add in due course my sociological and political science projects that involve cluster and correspondence analyses with R. Results are published in peer-reviewed journals and book. If you are interested, please have a look at my <a href="https://drive.google.com/file/d/1tu9J3zJmLvvGTz3ulWCpylqszNa8liEJ/view?usp=sharing" target="_blank">list of publications</a> and my <a href="https://drive.google.com/file/d/1tu9J3zJmLvvGTz3ulWCpylqszNa8liEJ/view?usp=sharing" target="_blank">Google Scholar profile</a>.
+Here, I will add in due course some of my sociological and political science projects that involve cluster and correspondence analyses with R. Results are published in peer-reviewed journals and book. If you are interested, please have a look at my <a href="https://drive.google.com/file/d/1tu9J3zJmLvvGTz3ulWCpylqszNa8liEJ/view?usp=sharing" target="_blank">list of publications</a> and my <a href="https://scholar.google.com/citations?hl=de&user=hCaq_LEAAAAJ" target="_blank">Google Scholar profile</a>.
