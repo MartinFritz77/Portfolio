@@ -24,4 +24,5 @@ This project demonstrates with artificial data how python can be used to investi
   </figure>
   <img src="{{ '/docs/assets/seaborn_pair_grid.png' | relative_url }}" alt="a_graph" style="width: 100%;">
 </div>
+
 [Click here]({{ '/docs/assets/EDA_Visualisierungen_Kundenabwanderung.html' | relative_url }}) to show complete Jupyter Notebook (in German)
